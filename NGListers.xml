@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="org.example.NGListernsFile" />
+    </listeners>
+    <test name="End to end test for demo.nopcommerce.com using TestNg">
+        <classes>
+            <class name="org.example.RunCukeTest" />
+        </classes>
+    </test>
+</suite>
