@@ -1,5 +1,7 @@
 package org.example.DriverManager;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Dimension;
@@ -66,6 +68,19 @@ public class DriverManager implements ITestListener {
         File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(screenshotFile, new File(".//screenshot//"+screenshotFileName+".png"));
     }
+    public void ReportGeneration(){
+        String Path= System.getProperty("user.dir")+"\\reports\\index.html"; //Here I am setting up path for my report System.getProperty("user.dir") means aa test run bija koy system ma run thase to aa system no by default j path hase aa  automatic lay leshe for example c:/system/admin/nikunj
+        ExtentSparkReporter extentSparkReporter=new ExtentSparkReporter(Path);
+        //Here I prepared skeleton of the report by setting up report and document title
+        extentSparkReporter.config().setReportName("Demo for NopCommerce using TestNG");
+        extentSparkReporter.config().setDocumentTitle("Reports");
+
+        ExtentReports extentReport=new ExtentReports();
+        extentReport.attachReporter(extentSparkReporter); //Here I am passing object of ExtentSparkReport so ExtentReport can know skeleton of the report
+        extentReport.setSystemInfo("OpenWebsite", "Nikunj Maniya");
+    }
+
+
 
 
 

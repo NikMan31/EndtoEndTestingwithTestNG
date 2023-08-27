@@ -24,6 +24,9 @@ public class NGListernsFile extends DriverManager implements ITestListener {
             throw new RuntimeException(e);
         }
     }
+    public void onTestSuccess(ITestResult result){
+        driverManager.ReportGeneration();
+    }
 
 
 
